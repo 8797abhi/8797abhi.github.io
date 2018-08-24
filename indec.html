@@ -1,0 +1,48 @@
+<html>
+    <head>
+        <script>
+            function cal()
+            {
+                var classAttended = document.getElementById("attended").value;
+                var totalClass = document.getElementById("total").value;
+                var selectedPer = document.getElementById("percentage").value;
+                var calPer =  ((classAttended/totalClass)*100);
+                
+                if(calPer >= selectedPer)
+                {
+                    
+                    classToBePresent = ((classAttended*100) - (totalClass*selectedPer))/(selectedPer);
+                    document.getElementById("show").innerHTML = "You can bunk "+Math.floor(classToBePresent)+" class";
+                    
+                }
+
+                else if(calPer < selectedPer)
+                {
+                    classToBePresent = ((totalClass*selectedPer) - (classAttended*100))/(100 - selectedPer);
+                    document.getElementById("show").innerHTML = "You Need To Attend "+Math.ceil(classToBePresent) +" class to get "+selectedPer+ "%";
+                }
+                else
+                {
+                    document.getElementById("show").innerHTML = "chill!!!";
+                    
+                }
+            }
+        </script>
+    </head>
+    <body>
+        
+        Total Class Attended:<input type = "number"  value = "" id= "attended">
+        Total Class :<input type = "number" value = ""id= "total">
+        <br>
+        
+        <input type="radio" name="percentage" value="75" > 75%<br>
+            <input type="radio" name="percentage" id="percentage" value="85" > 85%<br>
+            <input type="radio" name="percentage" id="percentage" value="90"> 90%<br>
+            <input type="radio" name="percentage" id="percentage" value="95"> 95%  
+            <br>
+            <input type = "button" value = "submit" onclick="cal()">
+        <div id = "show">
+
+        </div>
+    </body>
+</html>
