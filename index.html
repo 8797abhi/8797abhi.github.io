@@ -8,7 +8,7 @@
                 var selectedPer = document.getElementById("percentage").value;
                 var calPer =  ((classAttended/totalClass)*100);
                 
-                if(calPer >= selectedPer)
+                if(calPer > selectedPer+1)
                 {
                     
                     classToBePresent = ((classAttended*100) - (totalClass*selectedPer))/(selectedPer);
