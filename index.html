@@ -18,6 +18,7 @@
 		    return;
 				
 		}
+		
 		var radios = document.getElementsByName("percentage");
 		var flag = 0;
 		for (var i = 0; i < radios.length; i++) 
@@ -36,6 +37,19 @@
 		}
                 var classAttended = document.getElementById("attended").value;
                 var totalClass = document.getElementById("total").value;
+		if(totalClass < classAttended)
+		{
+			alert("total Classes Cannot be Less Than Class Attended");
+			return;
+		}
+		if(!(Number.isInteger(classAttended) && Number.isInteger(totalClass)))
+		{
+			alert("Only Whole Number Accepted");
+			return;
+		}
+		
+		
+
                // var selectedPer = document.getElementById("percentage").value;
                 var calPer =  ((classAttended/totalClass)*100);
                 
